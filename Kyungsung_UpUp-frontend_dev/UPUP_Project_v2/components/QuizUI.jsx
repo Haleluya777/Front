@@ -70,15 +70,12 @@ export default function QuizUI() {
         <button className={styles.backButton} onClick={goBackToFileList}>
           ← 뒤로가기
         </button>
-
         <div className={styles.questionBox}>{question}</div>
-
         <div className={styles.options}>
           {options.map((text, idx) => {
             const isSelected = selected === idx;
             const isCorrect = graded && idx === correctIndex;
             const isWrong = graded && isSelected && idx !== correctIndex;
-
             return (
               <div
                 key={idx}
@@ -88,6 +85,7 @@ export default function QuizUI() {
                   ${isWrong ? styles.incorrect : ''}`}
                 onClick={() => handleSelect(idx)}
               >
+                {isSelected && <img src='/image/check.png' alt="Selected" className={styles.checkimg} />}
                 {`${idx + 1}. ${text}`}
               </div>
             );
@@ -99,7 +97,7 @@ export default function QuizUI() {
         </button>
           
         <button className = {styles.nextQuizButton} onClick={nextQuiz}>
-          {'다음 문제'}
+          <span style={{ position: "relative", zIndex: 2 }}>다음 문제</span>
         </button>
 
         {graded && explanationIndex !== null && (

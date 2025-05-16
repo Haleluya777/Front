@@ -30,7 +30,7 @@
   position: relative;
   top: -300px;
 
-  background-color: #ffc53e;
+  background-color: #d6a227;
   color: white;
   font-weight: bold;
   font-size: 40px;
@@ -56,6 +56,7 @@
 }
 
 .option {
+  position: relative;
   cursor: pointer;
   font-size: 15px;
   padding: 6px 10px;
@@ -65,6 +66,17 @@
 
 .option:hover {
   background-color: #eaeaea;
+}
+
+.checkimg
+{
+  position: absolute;
+  left: -15;
+  top: -15;
+  z-index: 10;
+
+  width: 10%;
+  height: 200%;
 }
 
 .selected {
@@ -93,10 +105,11 @@
 {
   /*Position*/
   position: relative;
-  right: -70%;
+  right: -72%;
   margin-bottom: 20px;
 
   /*Box Style*/
+  overflow: hidden;
   background-color: #e0e0e0;
   border: none;
   border-radius: 6px;
@@ -105,13 +118,36 @@
   /*Font*/
   font-weight: bold;
 
+  /*Animation*/
+  transition: color 0.3s ease;
+  /*layer*/
+  z-index: 1;
+
   /*Cursor Hovering Style*/
   cursor:  pointer;
 }
 
-.nextQuizButton:hover
+.nextQuizButton::before
 {
-  background-color: #ffc53e;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: #fbbf24;
+  transition: width 0.3s ease;
+  z-index: -1;
+}
+
+.nextQuizButton:hover 
+{
+  color: white;
+}
+
+.nextQuizButton:hover::before 
+{
+  width: 100%;
 }
 
 .explanationBox {
