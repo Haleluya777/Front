@@ -64,7 +64,7 @@ export default function QuizUI() {
   };
 
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.backgroundimage}>
       <div className={styles.header}>{filename}</div>
       <div className={styles.container}>
         <button className={styles.backButton} onClick={goBackToFileList}>
@@ -92,10 +92,13 @@ export default function QuizUI() {
           })}
         </div>
 
-        <button className={styles.gradingbutton} onClick={handleGrade}>
-          {graded ? '다시 풀기' : '채점하기'}
+        <button className={styles.gradingbutton_mk2} onClick={handleGrade}>
+          <div className={styles.cube}>
+            <div className={styles.front}>{graded ? '다시 풀기' : '채점 하기'}</div>
+            <div className={styles.top}>{graded ? '다시 풀기' : '채점 하기'}</div>
+          </div>
         </button>
-          
+
         <button className = {styles.nextQuizButton} onClick={nextQuiz}>
           <span style={{ position: "relative", zIndex: 2 }}>다음 문제</span>
         </button>
