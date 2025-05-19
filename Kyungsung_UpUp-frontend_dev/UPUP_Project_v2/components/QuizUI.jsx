@@ -64,13 +64,13 @@ export default function QuizUI() {
   };
 
   return (
-    <div className={styles.backgroundimage}>
-      <div className={styles.header}>{filename}</div>
+    <div className={styles.wrapper}>
       <div className={styles.container}>
-        <button className={styles.backButton} onClick={goBackToFileList}>
-          ← 뒤로가기
-        </button>
-        <div className={styles.questionBox}>{question}</div>
+        <div className={styles.header}>{filename}</div>
+        <div className={styles.questionBox}>
+          {question}
+          <div className={styles.kyungsungYee_Glasses}></div>
+        </div>
         <div className={styles.options}>
           {options.map((text, idx) => {
             const isSelected = selected === idx;
@@ -91,18 +91,23 @@ export default function QuizUI() {
             );
           })}
         </div>
+        
+        <div className={styles.buttongroup}>
+          <button className={styles.backButton_mk2} onClick={goBackToFileList}>
+            뒤로 가기
+          </button>
 
-        <button className={styles.gradingbutton_mk2} onClick={handleGrade}>
-          <div className={styles.cube}>
-            <div className={styles.front}>{graded ? '다시 풀기' : '채점 하기'}</div>
-            <div className={styles.top}>{graded ? '다시 풀기' : '채점 하기'}</div>
-          </div>
-        </button>
+          <button className={styles.gradingbutton_mk2} onClick={handleGrade}>
+            <div className={styles.cube}>
+              <div className={styles.front}>{graded ? '다시 풀기' : '채점 하기'}</div>
+              <div className={styles.top}>{graded ? '다시 풀기' : '채점 하기'}</div>
+            </div>
+          </button>
 
-        <button className = {styles.nextQuizButton} onClick={nextQuiz}>
-          <span style={{ position: "relative", zIndex: 2 }}>다음 문제</span>
-        </button>
-
+          <button className = {styles.nextQuizButton} onClick={nextQuiz}>
+            <span style={{ position: "relative", zIndex: 2 }}>다음 문제</span>
+          </button>
+        </div>
         {graded && explanationIndex !== null && (
           <div className={styles.explanationBox}>
             <div className={styles.answerSummary}>

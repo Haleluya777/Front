@@ -1,21 +1,5 @@
 /* styles/quiz.module.css */
-.quizPageWrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color: #3f74db; /* 전체 배경 */
-}
-
-.wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color: #3f74db;
-}
-
-.backgroundimage
+.quizPageWrapper 
 {
   display: flex;
   position: fixed;
@@ -33,33 +17,48 @@
   align-items: center;
 }
 
+.wrapper {
+  position: relative;
+  width: 1000px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
 .container {
   position: absolute;
-  flex-direction: column;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+
   background-color: #fff;
   padding: 40px;
   border-radius: 20px;
+  
   width: 600px;
-  max-width: 90%;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1);
+
+  transform-origin: top center;
 }
 
 .header {
   position: relative;
-  top: -300px;
-
   background-color: #fabe31;
   color: white;
+
   font-weight: bold;
   font-size: 40px;
   text-align: center;
-  width: 450px;
-  padding: 10;
+
+  padding: 10px 10px;
   border-radius: 10px;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
+  margin-top: -80px;
 }
 
 .questionBox {
+  white-space: normal;
   background-color: #f3f3f3;
   padding: 12px 16px;
   border-radius: 5px;
@@ -117,18 +116,30 @@
   border-radius: 6px;
   font-weight: bold;
   cursor: pointer;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
+}
+
+.buttongroup
+{
+  position: relative;
+  margin-bottom: 60px;
 }
 
 .gradingbutton_mk2
 {
-  perspective: 800px;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+  bottom: -20px;
+
   width: 80px;
   height: 30px;
+
   cursor: pointer;
   background: none;
   border: none;
-  padding: 0;
+  padding: 0px;
+  
   font-family: inherit;
   outline: none;
 }
@@ -176,45 +187,44 @@
 
 .gradingbutton_mk2:hover .top 
 {
-  background-color: #ef4444;
+  background-color: #3b82f6;
   color: #ffffff;
 }
 
-.gradingbutton_mk2:focus 
+.gradingbutton_mk2:focus,
+.gradingbutton_mk2:focus-visible,
+.gradingbutton_mk2:active,
+.gradingbutton_mk2:focus .front,
+.gradingbutton_mk2:focus .top,
+.gradingbutton_mk2:focus .cube 
 {
-  outline: none;
+  outline: none !important;
+  box-shadow: none !important;
+  -webkit-tap-highlight-color: transparent;
 }
 
-.gradingbutton_mk2:focus .front 
+.backButton_mk2,
+.nextQuizButton
 {
-  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
+  width: 80px;
+  height: 30px;
+  background-color: #e0e0e0;
+  border: none;
+  border-radius: 6px;
+  
+  font-weight: bold;
+  
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  z-index: 1;
+  
+  position: absolute;
+  bottom: -20px;
 }
 
 .nextQuizButton
 {
-  /*Position*/
-  position: relative;
-  right: -72%;
-  margin-bottom: 20px;
-
-  /*Box Style*/
-  overflow: hidden;
-  background-color: #e0e0e0;
-  border: none;
-  border-radius: 6px;
-  width: 80px;
-  height: 30px;
-
-  /*Font*/
-  font-weight: bold;
-
-  /*Animation*/
-  transition: color 0.3s ease;
-  /*layer*/
-  z-index: 1;
-
-  /*Cursor Hovering Style*/
-  cursor:  pointer;
+  right: 0px;
 }
 
 .nextQuizButton::before
@@ -271,4 +281,52 @@
 }
 .backButton:hover {
   text-decoration: underline;
+}
+
+.backButton_mk2
+{
+  left: 0px;
+}
+
+.backButton_mk2::before
+{
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0%;
+  height: 100%;
+  background-color: #ff0000;
+  transition: width 0.3s ease;
+  z-index: -1;
+}
+
+.backButton_mk2:hover 
+{
+  color: white;
+}
+
+.backButton_mk2:hover::before 
+{
+  width: 100%;
+}
+
+.kyungsungYee_Glasses
+{
+  position: relative;
+  background-image: url('../public/image/KyungsungYEE_Glasses.png');
+  z-index: 1;
+  width: 50%;
+  height: 150px;
+  left: 350px;
+}
+
+.kyungsungYee_NO
+{
+  background-image: url('../public/image/KyungsungYEE_NO.png');
+}
+
+.kyungsungYee_YES
+{
+  background-image: url('../public/image/KyungsungYEE_YES.png');
 }
