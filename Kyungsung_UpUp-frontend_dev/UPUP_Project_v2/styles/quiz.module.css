@@ -311,14 +311,19 @@
   width: 100%;
 }
 
-.kyungsungYee_Glasses
+.kyungsungYeePos
 {
   position: relative;
-  background-image: url('../public/image/KyungsungYEE_Glasses.png');
   z-index: 1;
   width: 50%;
   height: 150px;
-  left: 350px;
+  left: 330px;
+  bottom: 60px;
+}
+
+.kyungsungYee_Glasses
+{
+  background-image: url('../public/image/KyungsungYEE_Glasses.png');
 }
 
 .kyungsungYee_NO

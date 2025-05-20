@@ -69,26 +69,17 @@ export default function QuizUI() {
         <div className={styles.header}>{filename}</div>
         <div className={styles.questionBox}>
           {question}
-          <div>
-            <div className={styles.kyungsungYee_Glasses}>
-              {graded && explanationIndex !== null && (
-        <>
-          {explanationIndex === correctIndex ? (
-            <img 
-              src="/image/correct_image.png" // 정답 이미지 
-              alt="정답" 
-              className={styles.resultImage}
-            />
-          ) : (
-            <img 
-              src="/image/incorrect_image.png" // 오답 이미지
-              alt="오답" 
-              className={styles.resultImage}
-            />
-          )}
-        </>
-      )}
-            </div>
+          <div className={styles.kyungsungYeePos}> 
+            {graded ? <img/> : ''}
+            {graded && explanationIndex !== null && (
+                <>
+                  {explanationIndex === correctIndex ? (
+                    <img src='/image/KyungsungYEE_YES.png' alt = "Correct"/>
+                    ) : (
+                    <img src='/image/KyungsungYEE_NO.png' alt = "Wrong"/>
+                  )}
+                </>
+              )}
           </div>
         </div>
         <div className={styles.options}>
