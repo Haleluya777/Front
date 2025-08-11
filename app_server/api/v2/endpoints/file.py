@@ -35,7 +35,6 @@ async def upload_file(
 
         db_file = UploadedFile(
             filename=unique_filename,
-            original_filename=file.filename,  # 원본 파일 이름 저장
             lecture_name=lecture_name,
             extracted_text=extracted,
         )
@@ -45,8 +44,7 @@ async def upload_file(
 
         return {
             "file_id": db_file.id,
-            "filename": unique_filename,       # 해시 포함 이름
-            "original_filename": file.filename, # 원본 이름
+            "filename": unique_filename,
             "text": extracted,
             "message": "업로드 및 저장 완료",
         }

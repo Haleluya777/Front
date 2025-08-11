@@ -22,7 +22,6 @@ async def create_quiz(request: QuizRequest, db: Session = Depends(get_db)):
         return {
             "file_id": file_info.id,
             "filename": file_info.filename,
-            "original_filename": file_info.original_filename,
             "text": file_info.extracted_text,
             "message": "업로드 및 저장 완료",
             "quiz": quiz
@@ -55,7 +54,6 @@ async def get_quiz_by_file_id(file_id: int = Query(...), db: Session = Depends(g
         return {
             "file_id": db_file.id,
             "filename": db_file.filename,
-            "original_filename": db_file.original_filename,
             "text": db_file.extracted_text,
             "message": "퀴즈 생성 완료",
             "quiz": questions

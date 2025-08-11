@@ -6,8 +6,7 @@ class UploadedFile(Base):
     __tablename__ = "uploaded_files"
 
     id = Column(Integer, primary_key=True, index=True)
-    filename = Column(String(255), unique=True, index=True)
-    original_filename = Column(String(255))
+    filename = Column(String(255))
     lecture_name = Column(String(255))
     extracted_text = Column(Text)
     uploaded_at = Column(DateTime(timezone=True), server_default=func.now())
