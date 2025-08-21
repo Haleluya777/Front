@@ -30,8 +30,7 @@ export default function Main() {
     const query = new URLSearchParams({
       name: folder.name,
       description: folder.description || "",
-      file: folder.filename || "", // 해시 포함 파일 이름
-      original_filename: folder.original_filename || folder.filename || "", // 원본 파일 이름
+      file: folder.filename || "",
     }).toString();
     router.push(`/FileList?${query}`);
   };
@@ -39,19 +38,6 @@ export default function Main() {
   const handleCreateFolder = (newFolder) => {
     if (folders.length < 9) {
       setFolders([...folders, newFolder]);
-    }
-  };
-
-  const removeFolder = (indexToRemove, event) => {
-    event.stopPropagation(); // 부모 요소로의 이벤트 전파(버블링)를 막습니다.
-    const folderToRemove = folders[indexToRemove];
-    if (
-      window.confirm(`'${folderToRemove.name}' 폴더를 정말 삭제하시겠습니까?`)
-    ) {
-      const updatedFolders = folders.filter(
-        (_, index) => index !== indexToRemove
-      );
-      setFolders(updatedFolders);
     }
   };
 
@@ -108,7 +94,7 @@ export default function Main() {
                   <p>{folder.description || "설명이 없습니다."}</p>
                   <span>생성일: {new Date().toISOString().split("T")[0]}</span>
                   <button
-                    className={styles.deleteButton} // styles.deleteButton CSS 클래스를 만들어주세요.
+                    className={styles.deleteButton} // 임시 삭제 버튼.
                     onClick={(e) => removeFolder(index, e)}
                   >
                     삭제

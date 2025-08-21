@@ -14,17 +14,9 @@
 }
 
 @keyframes gradientShift {
-  0% {
-    background-position: 0% 50%;
-  }
-
-  50% {
-    background-position: 100% 50%;
-  }
-
-  100% {
-    background-position: 0% 50%;
-  }
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 .heroSection {
@@ -111,7 +103,7 @@
 }
 
 .folderList {
-  display: grid;
+  display: flex;
   gap: 16px;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
@@ -126,7 +118,7 @@
 
 .folderCard {
   height: 200px;
-
+  
   padding: 16px;
   background: #ffffff;
   border-radius: 10px;
@@ -134,7 +126,7 @@
   transition: box-shadow 0.2s;
   border: 1px solid #ddd;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
-}
+  }
 
 .folderCard:hover {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -234,27 +226,17 @@
 }
 
 @media (max-width: 768px) {
-  .heroTitle {
-    font-size: 36px;
-  }
-
-  .heroSubtitle {
-    font-size: 16px;
-  }
-
-  .createButton,
-  .mockButton {
+  .heroTitle { font-size: 36px; }
+  .heroSubtitle { font-size: 16px; }
+  .createButton, .mockButton {
     padding: 8px 14px;
     font-size: 14px;
   }
-
-  .folderCard h4 {
-    font-size: 16px;
-  }
-
+  .folderCard h4 { font-size: 16px; }
   .footer {
     flex-direction: column;
     align-items: flex-start;
     gap: 24px;
   }
 }
+

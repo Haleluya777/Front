@@ -125,7 +125,7 @@ export default function FileList() {
 
         <div className={styles.folderSection}>
           <div className={styles.folderCard}>
-            <h4>{fileName || '파일 없음'}</h4>
+            <h4>{(fileName && fileName.split('_').slice(1).join('_')) || '파일 없음'}</h4>
             <p>{description}</p>
             <div className={styles.cardButtons}>
               <button
